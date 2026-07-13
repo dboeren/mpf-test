@@ -7,6 +7,23 @@
 # include everything here, or create sub-config files to be
 # imported and merged with this one.
 
+machine_vars:
+  player1_score:
+    initial_value: 8675309
+  player2_score:
+    initial_value: 4321523
+
+config:
+  - config_switches.yaml
+  - config_ball_devices.yaml
+  - config_coils.yaml
+
 modes:
   - attract
   - base
+
+playfields:
+  playfield:
+    default_source_device: bd_trough
+    tags: default
+

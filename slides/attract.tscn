@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://rrj3os472m6e"]
+[gd_scene load_steps=5 format=3 uid="uid://rrj3os472m6e"]
 
 [ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_r1mnt"]
+[ext_resource type="Script" uid="uid://dpe3dq8axt3g7" path="res://addons/mpf-gmc/classes/mpf_carousel.gd" id="2_hhxni"]
+[ext_resource type="Script" uid="uid://bfvhmv2eirpua" path="res://addons/mpf-gmc/classes/mpf_variable.gd" id="3_f161n"]
+[ext_resource type="Texture2D" uid="uid://dounln3l35d26" path="res://addons/mpf-gmc/images/logo_mpf.png" id="4_f161n"]
 
 [node name="Attract" type="Control"]
 layout_mode = 3
@@ -14,13 +17,197 @@ offset_right = 1280.0
 offset_bottom = 1024.0
 color = Color(0.32941177, 0.5176471, 1, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="MPFCarousel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_hhxni")
+carousel_name = "attract"
+metadata/_custom_type_script = "uid://dpe3dq8axt3g7"
+
+[node name="title" type="Label" parent="MPFCarousel"]
+visible = false
 layout_mode = 0
-offset_top = 400.0
 offset_right = 1280.0
-offset_bottom = 677.0
+offset_bottom = 1024.0
 theme_override_font_sizes/font_size = 100
-text = "Welcome to MPF-Test
-"
+text = "Welcome to MPF-Test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="credits" type="Label" parent="MPFCarousel"]
+visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "SAMPLE TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "credits_string"
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="mpf_logo" type="Sprite2D" parent="MPFCarousel"]
+position = Vector2(640, 512)
+scale = Vector2(3, 3)
+texture = ExtResource("4_f161n")
+
+[node name="last_scores_1p" type="Node2D" parent="MPFCarousel"]
+visible = false
+
+[node name="player1_score" type="Label" parent="MPFCarousel/last_scores_1p"]
+offset_right = 1280.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player1_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="last_scores_2p" type="Node2D" parent="MPFCarousel"]
+visible = false
+
+[node name="player1_score" type="Label" parent="MPFCarousel/last_scores_2p"]
+offset_right = 1280.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player1_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player2_score" type="Label" parent="MPFCarousel/last_scores_2p"]
+offset_top = 512.0
+offset_right = 1280.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player2_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="last_scores_3p" type="Node2D" parent="MPFCarousel"]
+visible = false
+
+[node name="player1_score" type="Label" parent="MPFCarousel/last_scores_3p"]
+offset_right = 640.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player1_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player2_score" type="Label" parent="MPFCarousel/last_scores_3p"]
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player2_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player3_score" type="Label" parent="MPFCarousel/last_scores_3p"]
+offset_top = 512.0
+offset_right = 640.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player3_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="last_scores_4p" type="Node2D" parent="MPFCarousel"]
+
+[node name="player1_score" type="Label" parent="MPFCarousel/last_scores_4p"]
+offset_right = 640.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player1_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player2_score" type="Label" parent="MPFCarousel/last_scores_4p"]
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player2_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player3_score" type="Label" parent="MPFCarousel/last_scores_4p"]
+offset_top = 512.0
+offset_right = 640.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player3_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="player4_score" type="Label" parent="MPFCarousel/last_scores_4p"]
+offset_left = 640.0
+offset_top = 512.0
+offset_right = 1280.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 100
+text = "123456"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_f161n")
+variable_type = 2
+variable_name = "player4_score"
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
