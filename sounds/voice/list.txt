@@ -1,0 +1,11 @@
+Callouts:
+  goalscored:   "GOAL!!!!"
+  ultraramps:   "Ultra Ramps"
+  ultragoalie : "Ultra Goalie"
+  ultraspinner: "Ultra Spinner"
+  ultrajets:    "Ultra Jets"
+
+Sound Effects:
+  star_ding:    Ding used for star rollovers
+  goalactive:   Short trumpet fanfare
+
