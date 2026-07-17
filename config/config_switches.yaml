@@ -19,6 +19,18 @@ switches:
     number:
   s_left_lane:
     number:
+  # For WCS Goal mode
+  s_star_1:
+    number:
+  s_star_2:
+    number:
+  s_star_3:
+    number:
+  s_star_4:
+    number:
+  s_goal:
+    number:
+
 
   # trough switches
   s_trough_1:
@@ -29,4 +41,3 @@ switches:
     number:
   s_plunger_lane:
     number:
-

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://vyml6v64gpii"]
+
+[ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_4yc4v"]
+
+[node name="Wcsgoal" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4yc4v")
+metadata/_custom_type_script = "uid://dru3usokwlhd3"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.81960785, 0.80784315, 0.29411766, 1)

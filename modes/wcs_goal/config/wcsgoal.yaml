@@ -1,0 +1,104 @@
+#config_version=6
+
+mode:
+  start_events: ball_starting
+  stop_events: stop_star_target_mode
+  priority: 500                           # Priority higher than base to control slide/sound overrides
+
+# Define the Shots (Targets and Goal)
+shots:
+  star_target_1:
+    switch: s_star_1
+    profile: star_target_profile
+  star_target_2:
+    switch: s_star_2
+    profile: star_target_profile
+  star_target_3:
+    switch: s_star_3
+    profile: star_target_profile
+  star_target_4:
+    switch: s_star_4
+    profile: star_target_profile
+  goal_shot:
+    switch: s_goal
+    profile: goal_profile
+
+# Shot Profiles (States for our shots)
+shot_profiles:
+  star_target_profile:
+    states:
+      - name: unlit
+        show: off
+      - name: lit
+        show: on                          # Solid light when hit
+  goal_profile:
+    states:
+      - name: locked                      # Goal is ignored/inactive for this mode initially
+        show: off
+      - name: active                      # Goal is flashing, ready to collect points
+        show: flash
+
+# Group the star targets
+shot_groups:
+  star_targets_group:
+    shots: star_target_1, star_target_2, star_target_3, star_target_4
+
+# play the associated slide
+slide_player:
+  mode_wcsgoal_started: wcsgoal
+
+# handle sounds
+sound_player:
+  star_target1_hit:
+    star_ding:
+      bus: effects
+  star_target2_hit:
+    star_ding:
+      bus: effects
+  star_target3_hit:
+    star_ding:
+      bus: effects
+  star_target4_hit:
+    star_ding:
+      bus: effects
+  goal_shot_active:
+    goalactive:
+      bus: effects
+  goal_shot_active_hit:
+    goalscored:
+      bus: effects
+
+
+event_player:
+  # MPF automatically posts this when all shots in "star_targets_group" are in their final state (lit)
+  shot_group_star_targets_group_complete:
+    - goal_shot_active
+    - play_scoop_lit_sound
+
+  # When goal is hit while active: Score points, reset targets, launch random mode, and stop this mode
+  goal_shot_active_hit:
+    - award_points_event
+    - reset_targets_event
+# disabled until we write these
+#    - trigger_random_reward_event
+    - stop_star_target_mode
+
+#  Scoring Points
+variable_player:
+  goal_shot_active_hit:
+    score: 50_000
+
+# When the mode finishes via goal collect, we clean up the shots for next time.
+shot_player:
+  reset_targets_event:
+    star_targets_group: unlit
+    goal_shot: locked
+
+# Use MPF's built-in random_event_player to roll the dice on the next mode.
+random_event_player:
+  trigger_random_reward_event:
+    events:
+      - start_mode_ultra_ramps
+      - start_mode_ultra_spinner
+      - start_mode_ultra_jets
+      - start_mode_ultra_goalie
