@@ -23,6 +23,7 @@ modes:
   - base
   - bumpers
   - hurryup
+  - wcsgoal
 
 playfields:
   playfield:
